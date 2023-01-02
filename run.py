@@ -73,7 +73,7 @@ if __name__ == '__main__':
         "device": 'cuda:0',  # options: auto, cpu, cuda:<id gpu>
         "res_w": 512,  # desired resolution (width) for training images (down/up-scaling is built-in)
         "res_h": 512,  # desired resolution (height) for training images (down/up-scaling is built-in)
-        "n_olat_val": 2100,  # number of OLAT training images to validate the training with
+        "n_olat_val": 100,  # number of OLAT training images to validate the training with
         "olat_training_batch": 0,  # number of pixels per OLAT image to train the model with in every iteration. If set to 0, the whole image will be used
         "olat_iters": 20000,  # number of training iterations for OLAT training
         "rgb_training_batch": 250,  # number of pixels per rgb (real captures) image to train the model with in every iteration
