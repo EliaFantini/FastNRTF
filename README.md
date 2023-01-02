@@ -86,6 +86,27 @@ Once the training it's done you can specify a personalized "data_dir" in the **c
 ```
 python run.py
 ```
+## Training settings
+The **config** dictionary contains the following variables to be optionally changed:
+```
+"scene_name": 'nerfactor_ficus',
+"data_dir": None, # path to dataset folder. If None, it is set to <project's root>\data\<scene_name>
+"output_dir": None,  # path to nvdiffrecmc's output folder. If None, it is set to <project's root>\out\<scene_name>
+"device": 'cuda:0',  # options: auto, cpu, cuda:<id gpu>
+"res_w": 512,  # desired resolution (width) for training images (down/up-scaling is built-in)
+"res_h": 512,  # desired resolution (height) for training images (down/up-scaling is built-in)
+"n_olat_val": 100,  # number of OLAT training images to validate the training with
+"olat_training_batch": 0,  # number of pixels per OLAT image to train the model with in every iteration. If set to 0, the whole image will be used
+"olat_iters": 20000,  # number of training iterations for OLAT training
+"rgb_training_batch": 250,  # number of pixels per rgb (real captures) image to train the model with in every iteration
+"joint_iters": 10000,  # number of training iterations for joint training
+"log_time_mem": True,  # if True, the time and memory consumption of every step will be logged
+"num_views": 8, # number of views to choose randomly among available to render relighting images
+"num_envmaps": 3,  # number of envmaps to choose randomly among available to render relighting images
+"mlp_size":[512,7,3],  # size of the MLP used in the model. First int is the number of neurons for every layer,
+# the second int is the number of layers, the third int is the number of the layer to place a skip connection
+"lr_envmap": 2e-2,  # learning rate for the envmap
+```
 
 
 ## Files description
