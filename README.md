@@ -10,9 +10,23 @@
   <img alt="GitHub star" src="https://img.shields.io/github/stars/EliaFantini/FastNRTF?style=social">
 </p>
 
+FastNRTF is an EPFL's MSc Data Science Semester Project aiming to optimize memory and time requirements in the process of inverse rendering for reconstructing 3D scenes from a set of images. This involves estimating various properties of
+objects, such as material, lighting, and geometry. While recent approaches have
+enabled the relighting of scenes under novel illumination conditions, they often rely
+on assumptions, such as direct illumination and predetermined material models,
+which can lead to an incomplete reconstruction of interreflections and shadow-free
+albedos. To address this issue, we utilize the neural precomputed radiance transfer
+function proposed in [Neural Radiance Transfer Field](https://github.com/LinjieLyu/NRTF) paper to handle complex global illumination effects. However,
+the computation required for this method is intensive and requires a powerful GPU
+with a large amount of memory, as well as a significant amount of time to train the
+model. Therefore, we employ Monte Carlo path tracing and denoising from [Nvdiffrecmc](https://github.com/NVlabs/nvdiffrecmc)
+for initial shape, light, and material reconstruction, and integrate it into the training
+framework to optimize for time and memory consumption. Our approach
+results in a roughly 10x reduction in training time and a minimum required VRAM
+of 6GB, while still producing high-quality relighting renderings.
 
 
-## Authors
+## Author
 
 - [Elia Fantini](https://github.com/EliaFantini/)
 
