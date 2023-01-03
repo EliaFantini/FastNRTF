@@ -16,9 +16,6 @@
 
 - [Elia Fantini](https://github.com/EliaFantini/)
 
-
-
-
 ## How to install
 Requires Python 3.6+, VS2019+, Cuda 11.3+ and PyTorch 1.10+, and an NVIDIA GPU with a modern driver supporting OptiX 7.3 or newer.
 
@@ -107,6 +104,9 @@ The **config** dictionary contains the following variables to be optionally chan
 # the second int is the number of layers, the third int is the number of the layer to place a skip connection
 "lr_envmap": 2e-2,  # learning rate for the envmap
 ```
+## Results
+Example of results of our experiments on the four NeRFactor's scenes
+![nvdiffrecmc_ours_reference](https://user-images.githubusercontent.com/62103572/210345045-a85455c9-f24b-4d30-92a4-43a2d8b0d272.png)
 
 
 ## Files description
