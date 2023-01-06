@@ -1,0 +1,100 @@
+These info are to find images and metrics related to some experiments I made. Datetime is used as a code to distinguish different 
+experiments and training phases. For example, everything related to experiment 2 will be:
+
+- out/nerfactor_<Scene>/_OLAT/<OLAT Datetime>_x.png : image that shows a validation comparison between rendered image (left) and 
+		target (right) after "x" iterations of OLAT Training.
+- out/nerfactor_<Scene>/_OLAT/checkpoint/metrics_<OLAT Datetime>.pkl : pickle containing all the metrics of the OLAT Training 
+		saved in a dictionary.
+- out/nerfactor_<Scene>/_JOINT/<JOINT Datetime>_val_x.png : image that shows a validation comparison between rendered image (left) 
+		and target (right) after "x" iterations of JOINT Training.
+- out/nerfactor_<Scene>/_JOINT/<JOINT Datetime>_env_x.png : envmap estimation after "x" iterations of JOINT Training. Only if it 
+has changed from last saved envmap it will be stored.
+- out/nerfactor_<Scene>/_JOINT/checkpoint/metrics_<JOINT Datetime>.pkl : pickle containing all the metrics of the JOINT Training 
+		saved in a dictionary.
+- out/nerfactor_<Scene>/_RELIGHT/<JOINT Datetime>_val_x_<envmap_name>.png : image that shows a comparison between a
+		rendered image (left) and target (right). The image is relighted using <envmap_name>.hdr as envmap and camera "x".
+- out/nerfactor_<Scene>/_RELIGHT/metrics/metrics_<RELIGHT Datetime>.pkl : pickle containing all the metrics of the RELIGHTING phase
+ 		saved in a dictionary.
+
+
+
+EXPERIMENTS:
+
+1- Nvdiffrecmc memory analysis run with batch size 6 for phase 1 and batch size 1 for phase 2:
+	--Scene:
+		Drums:  Phase 1 max allocated mem:5.37GB
+			  Phase 2 max allocated mem:5.37GB
+
+		Ficus:  Phase 1 max allocated mem:5.35GB
+		 	  Phase 2 max allocated mem:5.35GB
+
+		Lego:   Phase 1 max allocated mem:5.46GB
+			  Phase 2 max allocated mem:5.46GB
+
+		Hotdog: Phase 1 max allocated mem:5.40GB
+			  Phase 2 max allocated mem:5.40GB
+
+
+2- Long training experiment: 100k OLAT Training + 50k JOINT Training:
+	-- Scene: Hotdog
+	-- OLAT Datetime: 2022-12-25_17-06
+	-- JOINT Datetime: 2022-12-26_10-23
+	-- RELIGHT Datetime: 2022-12-31_01-50
+	-- RELIGHT results: tone loss= 0.00913 -- PSNR(dB)= 20.22015 -- SSIM= 0.92230 -- LPIPS= 0.20692
+
+
+3- No OLAT Training, only JOINT Training experiment: 100k OLAT Training + 50k JOINT Training:
+	-- Scene: Hotdog
+	-- JOINT Datetime: 2022-12-26_20-41
+	-- RELIGHT Datetime: 2022-12-27_08-34
+	-- RELIGHT results: tone loss= 0.00681 -- PSNR(dB)= 15.21425 -- SSIM= 0.86621 -- LPIPS= 0.16953
+
+
+4- Testing different number of training images for OLAT training:
+	-- Scene: Lego
+		-- Image numbers: 1100
+			-- OLAT Datetime: 2022-12-26_20-53 
+ 		-- Image numbers: 1650
+			-- OLAT Datetime: 2022-12-25_17-06
+		-- Image numbers: 2100
+			-- OLAT Datetime: 2022-12-14_21-34
+
+
+5- Testing different batch sizes for OLAT Training:
+	-- Scene: Lego
+		-- Batch size: 500
+			-- OLAT Datetime: 2022-12-27_09-52
+ 		-- Batch size: 10000
+			-- OLAT Datetime: 2022-12-27_08-46
+
+
+6- Testing different batch sizes for JOINT Training:
+	-- Scene: Hotdog
+		-- Batch size: 250
+			-- JOINT Datetime: 2022-12-26_10-23
+ 		-- Batch size: 500
+			-- JOINT Datetime: 2022-12-27_09-08
+
+
+7- Testing different learning rates for the environment map
+	-- Scene: Lego
+		-- Learning rate: 2e-3
+			-- JOINT Datetime: 2022-12-15_09-57
+			-- RELIGHT Datetime: 2022-12-27_08-34
+			-- RELIGHT results: tone loss= 0.01159 -- PSNR(dB)= 15.04136 -- SSIM= 0.85856 -- LPIPS= 0.27117
+ 		-- Learning rate: 2e-2
+			-- JOINT Datetime: 2022-12-27_19-51
+			-- RELIGHT Datetime: 2022-12-28_09-31
+			-- RELIGHT results: tone loss= 0.01371 -- PSNR(dB)= 16.92060 -- SSIM= 0.87473 -- LPIPS= 0.22315
+		-- Learning rate: 2e-1
+			-- JOINT Datetime: 2022-12-27_20-25
+			-- RELIGHT Datetime: 2022-12-28_09-33
+			-- RELIGHT results: tone loss= 0.02054 -- PSNR(dB)= 17.70357 -- SSIM= 0.88372 -- LPIPS= 0.19866
+
+8- Testing a smaller MLP with 128 neurons per layer (instead of 512):
+	-- Scene: Hotdog
+	-- OLAT Datetime: 2022-12-27_09-46
+	-- JOINT Datetime: 2022-12-27_17-5
+	-- RELIGHT Datetime: 2022-12-31_01-34
+	-- RELIGHT results: tone loss= 0.03199 -- PSNR(dB)= 19.99928 -- SSIM= 0.92072 -- LPIPS= 0.21560
+
