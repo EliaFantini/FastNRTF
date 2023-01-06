@@ -16,10 +16,10 @@ enabled the relighting of scenes under novel illumination conditions, they often
 on assumptions, such as direct illumination and predetermined material models,
 which can lead to an incomplete reconstruction of interreflections and shadow-free
 albedos. To address this issue, we utilize the neural precomputed radiance transfer
-function proposed in [Neural Radiance Transfer Field](https://github.com/LinjieLyu/NRTF) paper to handle complex global illumination effects. However,
+function proposed in [Neural Radiance Transfer Field](https://github.com/LinjieLyu/NRTF) paper [[1]](#1) to handle complex global illumination effects. However,
 the computation required for this method is intensive and requires a powerful GPU
 with a large amount of memory, as well as a significant amount of time to train the
-model. Therefore, we employ Monte Carlo path tracing and denoising from [Nvdiffrecmc](https://github.com/NVlabs/nvdiffrecmc)
+model. Therefore, we employ Monte Carlo path tracing and denoising from [Nvdiffrecmc](https://github.com/NVlabs/nvdiffrecmc) [[2]](#2)
 for initial shape, light, and material reconstruction, and integrate it into the training
 framework to optimize for time and memory consumption. Our approach
 results in a roughly 10x reduction in training time and a minimum required VRAM
@@ -59,7 +59,7 @@ pip install tqdm scikit-image opencv-python pandas tensorboard addict imageio im
 python generate_olat_envmaps.py
 ```
 This code has to be run only once. 
-6. Download [NeRFactor](https://xiuming.info/projects/nerfactor/) dataset. Our experiments were run on this dataset and Nvdiffrecmc's repository provides a [script](https://github.com/NVlabs/nvdiffrecmc/blob/main/data/download_datasets.py) to download it easily. Comment the last lines "download_nerf_synthetic()"
+6. Download [NeRFactor](https://xiuming.info/projects/nerfactor/) dataset  [[3]](#3). Our experiments were run on this dataset and Nvdiffrecmc's repository provides a [script](https://github.com/NVlabs/nvdiffrecmc/blob/main/data/download_datasets.py) to download it easily. Comment the last lines "download_nerf_synthetic()"
 "download_nerd()" before running it to avoid downloading unnecessary data. Then run:
 ```
 python download_datasets.py
@@ -132,6 +132,19 @@ Example of results of our experiments on the four NeRFactor's scenes
 - **figures/**: folder containing the figures for the report.
 - **src/**: folder containing most of the functions and helpers to run the training.
 - **run.py**: main file, containing the main function for the whole training process after the Nvdiffrecmc's initial estimation.
+
+## References
+<a id="1">[1]</a> 
+Linjie Lyu, Ayush Tewari, Thomas Leimkuehler, Marc Habermann, and Christian Theobalt. 
+Neural radiance transfer fields for relightable novel-view synthesis with global illumination, 2022
+
+<a id="2">[2]</a> 
+Jon Hasselgren, Nikolai Hofmann, and Jacob Munkberg. 
+Shape, light, and material decomposition from images using monte carlo rendering and denoising, 2022.
+
+<a id="3">[3]</a> 
+Xiuming Zhang, Pratul P. Srinivasan, Boyang Deng, Paul Debevec, William T. Freeman, and Jonathan T.
+Barron. NeRFactor. ACM Transactions on Graphics, 40(6):1–18, dec 2021
 
 
 
