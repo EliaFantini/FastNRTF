@@ -1,7 +1,7 @@
 - /nvdiffrecmc/: folder containing a .py file modified from Nvdiffrecmc's original code
 - /nvdiffrecmc_relight/: folder containing code and files used to generate Nvdiffrecmc first result vs our full pipeline comparisons
-- /data/: folder containing all training data to run experiments
-- /out/: folder containing all outputs from different experiments
+- /data/: folder containing all training data to run experiments (available on Google Drive)
+- /out/: folder containing all outputs from different experiments (available on Google Drive)
 - /experiments_analysis.py : code used to analyse data produced from experiments
 - /experiments_utils.py : utils functions for  experiments_analysis.py
 - /experiments_summary.txt : summary of experiments done
