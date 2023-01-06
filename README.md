@@ -128,9 +128,11 @@ Example of results of our experiments on the four NeRFactor's scenes
 - **blender/**: folder containing the python file to be opened and run in Blender.
 - **data/**: folder containing the training images divided in subfolders named after the scene they contain images of.
 - **data/light_probes/**: folder containing [NeRFactor](https://xiuming.info/projects/nerfactor/)'s test envmaps to do relighting.
+- **experiments/**: folder containing the code used to analyse the metrics obtained from different experiments and to generate the figures and plot that were put into the report. It also contains code used to compare our relight with reference and with the initial estimations obtained with Nvdiffrecmc. Finally, it contains the main function of Nvdiffrecmc "train.py" modified to log time-memory consumptions and with a different batch size for phase 2. More details are available in readme files inside the folders.
 - **figures/**: folder containing the figures for the report.
 - **src/**: folder containing most of the functions and helpers to run the training.
 - **run.py**: main file, containing the main function for the whole training process after the Nvdiffrecmc's initial estimation.
+
 
 
 
