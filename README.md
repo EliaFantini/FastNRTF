@@ -10,22 +10,34 @@
   <img alt="GitHub star" src="https://img.shields.io/github/stars/EliaFantini/FastNRTF?style=social">
 </p>
 
-FastNRTF is an EPFL's MSc Data Science Semester Project aiming to optimize memory and time requirements in the process of inverse rendering for reconstructing 3D scenes from a set of images. This involves estimating various properties of
+**FastNRTF: Efficient Relighting of Complex Scenes using Neural Radiance Transfer Fields**
+
+
+FastNRTF is an EPFL's MSc Data Science Semester Project aiming to optimize memory and time requirements in the process of inverse rendering for reconstructing 3D scenes from a set of images. 
+
+This involves estimating various properties of
 objects, such as material, lighting, and geometry. While recent approaches have
 enabled the relighting of scenes under novel illumination conditions, they often rely
 on assumptions, such as direct illumination and predetermined material models,
 which can lead to an incomplete reconstruction of interreflections and shadow-free
 albedos. To address this issue, we utilize the neural precomputed radiance transfer
-function proposed in [Neural Radiance Transfer Field](https://github.com/LinjieLyu/NRTF) paper [[1]](#1) to handle complex global illumination effects. However,
+function proposed in [Neural Radiance Transfer Field](https://github.com/LinjieLyu/NRTF) paper [[1]](#1) to handle complex global illumination effects. 
+
+However,
 the computation required for this method is intensive and requires a powerful GPU
 with a large amount of memory, as well as a significant amount of time to train the
 model. Therefore, we employ Monte Carlo path tracing and denoising from [Nvdiffrecmc](https://github.com/NVlabs/nvdiffrecmc) [[2]](#2)
 for initial shape, light, and material reconstruction, and integrate it into the training
-framework to optimize for time and memory consumption. Our approach
+framework to optimize for time and memory consumption. 
+
+Our approach
 results in a roughly 10x reduction in training time and a minimum required VRAM
 of 6GB, while still producing high-quality relighting renderings.
 
 The code is based on the [Neural Radiance Transfer Field](https://github.com/LinjieLyu/NRTF) framework and contains some functions and code snippets borrowed from their repository.  Their code serves as the foundation for the present implementation. Additionally, a portion of the code from [Nvdiffrecmc](https://github.com/NVlabs/nvdiffrecmc) has been incorporated in order to correctly load their material model into Blender.
+
+
+![NRTF finalpresentation](https://user-images.githubusercontent.com/62103572/223072225-6be7c7ae-78c4-4a8b-8cbd-8e5ee4684e50.gif)
 
 ## Author
 
@@ -54,11 +66,11 @@ pip install --global-option="--no-networks" git+https://github.com/NVlabs/tiny-c
 imageio_download_bin freeimage
 pip install tqdm scikit-image opencv-python pandas tensorboard addict imageio imageio-ffmpeg pyquaternion scikit-learn pyyaml seaborn PyMCubes trimesh plyfile redner-gpu matplotlib jupyter lpips pytorch-msssim mitsuba
 ```
-5. Then run the following python script in the 'src' folder:
+5. Then run the following python script in the 'src' folder (this code has to be run only once):
 ```
 python generate_olat_envmaps.py
 ```
-This code has to be run only once. 
+
 6. Download [NeRFactor](https://xiuming.info/projects/nerfactor/) dataset  [[3]](#3). Our experiments were run on this dataset and Nvdiffrecmc's repository provides a [script](https://github.com/NVlabs/nvdiffrecmc/blob/main/data/download_datasets.py) to download it easily. Comment the last lines "download_nerf_synthetic()"
 "download_nerd()" before running it to avoid downloading unnecessary data. Then run:
 ```
@@ -132,6 +144,7 @@ Example of results of our experiments on the four NeRFactor's scenes
 - **figures/**: folder containing the figures for the report.
 - **src/**: folder containing most of the functions and helpers to run the training.
 - **run.py**: main file, containing the main function for the whole training process after the Nvdiffrecmc's initial estimation.
+- **report.pdf**: pdf containing a detailed report of the project.
 
 ## References
 <a id="1">[1]</a> 
@@ -146,6 +159,15 @@ Shape, light, and material decomposition from images using monte carlo rendering
 Xiuming Zhang, Pratul P. Srinivasan, Boyang Deng, Paul Debevec, William T. Freeman, and Jonathan T.
 Barron. NeRFactor. ACM Transactions on Graphics, 40(6):1–18, dec 2021
 
+<a id="4">[4]</a> 
+Wenzel Jakob, Sébastien Speierer, Nicolas Roussel, and Delio Vicini. 2022. Dr.Jit: A Just-In-Time Compiler for Differentiable Rendering. In Transactions on Graphics (Proceedings of SIGGRAPH) 41(4).
+
+## 🛠 Skills
+Python, Pytorch, Blender, Mitsuba 3 [[4]](#4). Memory and time optimization of the training process, Neural Radiance Transfer Fields, Inverse Rendering, 3D reconstruction, NeRF technology, SDF and mesh scene representation, Precomputed Radiance Transfer (for Global Illumination), SVBRDF, geometry-lighting-material joint estimation and optimization, memory usage analysis.
+
+## 🔗 Links
+[![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://eliafantini.github.io/Portfolio/)
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/-elia-fantini/)
 
 
 
