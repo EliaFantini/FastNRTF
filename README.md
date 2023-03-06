@@ -13,7 +13,7 @@
 **FastNRTF: Efficient Relighting of Complex Scenes using Neural Radiance Transfer Fields**
 
 
-FastNRTF is an EPFL's MSc Data Science Semester Project aiming to optimize memory and time requirements in the process of inverse rendering for reconstructing 3D scenes from a set of images. 
+FastNRTF is an EPFL's MSc Data Science Semester Project supervised by the [Image and Visual Representation Lab](https://www.epfl.ch/labs/ivrl/), aiming to optimize memory and time requirements in the process of inverse rendering for reconstructing 3D scenes from a set of images. 
 
 This involves estimating various properties of
 objects, such as material, lighting, and geometry. While recent approaches have
