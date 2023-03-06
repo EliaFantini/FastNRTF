@@ -36,6 +36,8 @@ of 6GB, while still producing high-quality relighting renderings.
 
 The code is based on the [Neural Radiance Transfer Field](https://github.com/LinjieLyu/NRTF) framework and contains some functions and code snippets borrowed from their repository.  Their code serves as the foundation for the present implementation. Additionally, a portion of the code from [Nvdiffrecmc](https://github.com/NVlabs/nvdiffrecmc) has been incorporated in order to correctly load their material model into Blender.
 
+For all the details, please read the full [report](https://github.com/EliaFantini/FastNRTF/blob/main/report.pdf).
+
 
 ![NRTF finalpresentation](https://user-images.githubusercontent.com/62103572/223072225-6be7c7ae-78c4-4a8b-8cbd-8e5ee4684e50.gif)
 
