@@ -134,7 +134,11 @@ The **config** dictionary contains the following variables to be optionally chan
 "lr_envmap": 2e-2,  # learning rate for the envmap
 ```
 ## Results
-Example of results of our experiments on the four NeRFactor's scenes
+Comparison of NeRFactor [[3]](#3) vs original NRTF [[1]](#1) vs ours:
+![comparison](https://user-images.githubusercontent.com/62103572/226195355-36697f23-f482-4758-b918-6cfdfafc6a7b.png)
+
+
+Example of results of our experiments on the four NeRFactor's scenes, compared to initial estimation obtained with Nvdiffrecmc [[2]](#2):
 ![nvdiffrecmc_ours_reference](https://user-images.githubusercontent.com/62103572/210345045-a85455c9-f24b-4d30-92a4-43a2d8b0d272.png)
 
 
